@@ -1,0 +1,15 @@
+.circle {
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    border-radius: 50%;
+    display: inline-block;
+    visibility: hidden;
+}
+
+.flex {
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
