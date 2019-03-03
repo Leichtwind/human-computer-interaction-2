@@ -3,8 +3,12 @@
     width: 200px;
     background-color: red;
     border-radius: 50%;
-    display: inline-block;
+    display: flex;
     visibility: hidden;
+    justify-content:center;
+    align-items: center;
+    font-size: 500%;
+    color: white;
 }
 
 .flex {
