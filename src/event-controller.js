@@ -5,20 +5,15 @@ import Timer from './timer';
 
 export default class {
   /**
+   * @params {} circles
    * @constructor
    */
-  constructor() {
+  constructor(circles) {
+    this._circles = circles;
     this._timer = new Timer();
     this._isActive = false;
 
     this._reactionTime = document.getElementById('reactionTime');
-
-    this._circles = [];
-    const circles = document.getElementsByClassName('circle');
-
-    for (let index = 0; index < circles.length; index++) {
-      this._circles.push(circles.item(index));
-    }
   }
 
   /**
@@ -36,8 +31,8 @@ export default class {
       circle.style.visibility = 'hidden';
     });
 
-    const id = 'circle' + Util.randomInt({ to: 8 });
-    const circle = document.getElementById(id);
+    const circleIndex = Util.randomInt({ to: this._circles.length });
+    const circle = this._circles[circleIndex];
 
     Util.setTimeoutPromise(2000).then(() => {
       circle.style.visibility = 'visible';
@@ -49,17 +44,13 @@ export default class {
   }
 
   /**
-   *
-   * @param {HTMLElement} element
+   * @param {String} number
    */
-  onCircleClick(element) {
-    if (!this._isActive) {
-      return;
-    }
+  onNumberDown(number) {
+    const circle = this._circles[number - 1];
 
-    if (element.style.visibility === 'visible') {
+    if (circle.style.visibility === 'visible') {
       this._timer.stop();
-
       this._isActive = false;
     }
   }
