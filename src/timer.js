@@ -17,11 +17,10 @@ export default class {
       return;
     }
 
-    let time = 0;
+    const startTime = Date.now();
 
     this._timer = setInterval(() => {
-      time++;
-      callback(time);
+      callback(Date.now() - startTime);
     }, 1);
   }
 
