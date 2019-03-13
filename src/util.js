@@ -31,7 +31,10 @@ export default class {
         return answer;
       }
 
-      alert(`You have entered an invalid value: ${answer}`);
+      alert(answer ?
+        `You have entered an invalid value: ${answer}` :
+        `Don't think you can just ignore me, silly`
+      );
     }
   }
 
