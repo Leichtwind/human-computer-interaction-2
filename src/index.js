@@ -1,9 +1,9 @@
 'use strict';
 
-import EventController from './event-controller';
 import Util from './util';
+import EventController from './event-controller';
 
-const flexes = Util.getElementsById(['flex0', 'flex1']);
+const [estimatedTime, ...flexes] = Util.getElementsById(['estimatedTime', 'flex0', 'flex1']);
 
 const numberOfCircles = Number.parseInt(Util.askValidValue(
   'Please, enter number of circles (2, 4 or 8)',
@@ -49,3 +49,6 @@ document.onkeypress = ({ code }) => {
       break;
   }
 };
+
+const a = 50, b = 150;
+estimatedTime.innerText = a + b*Math.log2(numberOfCircles + 1);
