@@ -2,6 +2,7 @@
 
 import Util from './util';
 import Timer from './timer';
+import { EOL } from 'os';
 
 export default class {
   /**
@@ -13,7 +14,11 @@ export default class {
     this._timer = new Timer();
     this._isActive = false;
 
-    this._reactionTime = document.getElementById('reactionTime');
+    [this._reactionTime, this._results, this._resultsCountField] = Util.getElementsById([
+      'reactionTime', 'results', 'resultsCount'
+    ]);
+
+    this._resultsCount = 0;
   }
 
   /**
@@ -52,6 +57,9 @@ export default class {
     if (circle.style.visibility === 'visible') {
       this._timer.stop();
       this._isActive = false;
+
+      this._results.innerText += this._reactionTime.innerText + EOL;
+      this._resultsCountField.innerText = ++this._resultsCount;
     }
   }
 }
