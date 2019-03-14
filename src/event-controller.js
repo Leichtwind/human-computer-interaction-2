@@ -54,7 +54,7 @@ export default class {
   onNumberDown(number) {
     const circle = this._circles[number - 1];
 
-    if (circle.style.visibility === 'visible') {
+    if (circle && circle.style.visibility === 'visible') {
       this._timer.stop();
       this._isActive = false;
 
