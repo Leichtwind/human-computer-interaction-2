@@ -51,4 +51,4 @@ document.onkeypress = ({ code }) => {
 };
 
 const a = 50, b = 150;
-estimatedTime.innerText = a + b*Math.log2(numberOfCircles + 1);
+estimatedTime.innerText = a + b * Math.log2(numberOfCircles + 1);

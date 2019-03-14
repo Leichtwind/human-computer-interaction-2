@@ -6,7 +6,7 @@ import { EOL } from 'os';
 
 export default class {
   /**
-   * @params {} circles
+   * @params {HTMLElement[]} circles
    * @constructor
    */
   constructor(circles) {
@@ -52,6 +52,10 @@ export default class {
    * @param {String} number
    */
   onNumberDown(number) {
+    if (!this._isActive) {
+      return;
+    }
+
     const circle = this._circles[number - 1];
 
     if (circle && circle.style.visibility === 'visible') {
